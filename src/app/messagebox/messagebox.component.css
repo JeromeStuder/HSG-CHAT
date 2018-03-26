@@ -1,0 +1,15 @@
+.padding-textarea{
+    width:100%;
+    border-radius:10px;
+}
+.round-button{
+    border-radius: 10px;
+}
+.gruen{
+    background-color:#00802F;
+    color:#ffffff;
+}
+.gruen:disabled{
+    background-color:"#00802F";
+    opacity: 0.5;
+}

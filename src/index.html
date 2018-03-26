@@ -2,11 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>HSGCHAT</title>
+  <!-- titel des chats benennen-->
+  <title>UNISG-CHAT</title>
+  <!-- Icon als png in tab einbinden -->
+  <link rel="icon" href="../../../assets/logo-mobile.png">
+  <!-- -->
   <base href="/">
-
+  <script src="../../../assets/myfunction.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- OVerlay für Nutzungsbedingungen-->
+  <script>
+      function overlayOn() {
+        document.getElementById("overlay").style.display = "block";
+      }
+      
+      function overlayOff() {
+        document.getElementById("overlay").style.display = "none";
+      }
+  </script>
+ 
 </head>
 <body>
   <app-root></app-root>

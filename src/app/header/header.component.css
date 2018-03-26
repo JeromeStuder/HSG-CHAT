@@ -1,0 +1,27 @@
+.header-application {
+    border:solid 2px #00802F;
+    height:100%;
+    background-color:#ffffff;
+}
+.logo-image{
+    display:inline-block;
+    margin-top: 5px;
+    height:40px;
+}
+
+.logo-image-mobile{
+    display: inline-block;
+    margin-top: 18px;
+    height:30px;
+}
+
+.header-text{
+    text-align:center;
+    font-size:25px;
+    font-family:"Gill Sans",sans-serif;
+    margin-top:18px;
+    height:100%;
+    color:#00802F;
+    
+}
+

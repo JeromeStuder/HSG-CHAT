@@ -1,0 +1,23 @@
+
+<div class="backgroundIMG"><img src="{{backgroundImg}}"></div>
+<div class="container-fluid top100">
+    <div class="row">
+        <div class="col-sm-1"></div><!--Falls der Bildschirm grösser als 780px ist, wird auf der linken Seite eine leere box von 2Einheiten eingefügt-->
+        <p class="welcomeText col-sm-10 hidden-xs">{{KursInformation}}</p><!--Gibt die Überschrift an, falls der Bildschirm mehr als 768px ist, ist dieser 8 Einheiten breit, falls weniger als 768px, dann 12 Einheiten-->
+    </div>
+        <div class="row"><!-- Definiert die Grosse Messagebox, bei der der Text eingefügt wird-->
+        <div class="sidebar-resources-categories center-block"><!--Definiert die Sprechblase-->
+            <div class="Chat-Content" id="chatGoesHere"><!-- in dieses DIV werden die Chatnachrichten eingefügt -->
+                <div class="chat_receive">{{user1}}: Hallo</div>
+                <div class="chat_receive">{{user2}}: Hey</div>
+                <div class="chat_receive">{{user1}}: wie geht's</div>
+                <div class="chat_myself">ICH: Hallo</div>
+                <div class="chat_receive">{{user1}}: Hallo</div>
+                <div class="chat_receive">{{user2}}: Servus du</div>
+                <div class="chat_myself">ICH: gut und euch</div>
+                <div class="chat_receive">{{user1}}: ja passt</div>
+            </div>
+        </div>
+    </div>
+</div>
+
