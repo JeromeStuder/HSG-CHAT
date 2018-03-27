@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { Window } from 'selenium-webdriver';
 
 @Component({
@@ -7,7 +7,13 @@ import { Window } from 'selenium-webdriver';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  
+  /*private _name='';
+  @Input()
+  set name(name: string){
+    this._name = (name&&name.trim())||'UNISG-CHAT';
+  }
+  get name(): string{return this._name;}
+  */
   header = 'Herzlich Willkommen zum UNISG-CHAT';
   headerMobile ='UNISG-CHAT'
   logo={
@@ -19,6 +25,12 @@ export class HeaderComponent implements OnInit {
     'alt':'UNISG-Logo'
   }
 
+  public logout():void{
+    var r = confirm('Bist du sicher, dass du gehen möchtest?');
+    if (r==true) {
+      window.location.href="https://www.google.ch";
+    }
+  }
   constructor() { }
 
   ngOnInit() {

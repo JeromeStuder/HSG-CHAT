@@ -1,11 +1,11 @@
 <div class="header-application container-fluid">
     <div class="col-sm-2 col-xs-2"><!--links wird eine Box eingefügt, welche 2Einheiten breit ist-->
         <img class="logo-image hidden-xs" src="{{logo.src}}" alt="{{logo.alt}}"> <!--Die Src und der alt-text vom Logo wird im header.component.ts aufgerufen-->
-        <img class="logo-image-mobile hidden-sm" src="{{logoMobile.src}}" alt="{{logoMobile.alt}}">
+        <img class="logo-image-mobile hidden-sm hidden-md hidden-lg" src="{{logoMobile.src}}" alt="{{logoMobile.alt}}">
     </div>
     <div class="header-text hidden-xs col-sm-8">{{header}}</div><!--die Mitte wird mit 8 Einheinten angegeben.-->
-    <div class="header-text hidden-sm col-xs-8">{{headerMobile}}</div>
-    <div class="col-sm-2 col-xs-2"></div><!--rechts-->
+    <div class="header-text hidden-sm hidden-md hidden-lg col-xs-8">{{headerMobile}}</div>
+    <div class="col-sm-2 col-xs-2" style="text-align:center;margin-top:15px;color:black;" (click)="logout()"><a href="" ><i class="fa fa-sign-out" style="font-size:36px;color:#00802F;"></i></a></div><!--rechts-->
 </div>
 
         

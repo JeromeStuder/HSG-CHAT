@@ -20,12 +20,26 @@
     height:100%;
     width:100%;
 }
+.bubble{
+    width:100%;
+    min-height:60px;
+    height:auto;
+    clear:both;
+}
 .chat_receive{
     text-align:left;
-    margin-left:30px;
+    margin-left:10px;
     font-family:"Palatino";
     font-weight: normal;
     font-size:medium;
+    max-width:400px;
+    background-color:rgba(192,197,206,0.5);
+    border-radius:5px;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right:15px;
+    padding-bottom: 10px;
+    float:left;
 }
 .chat_myself{
     text-align:right;
@@ -33,10 +47,19 @@
     font-family:"Palatino";
     font-weight: normal;
     font-size:medium;
+    max-width: 400px;
+    background-color:rgba(0,128,47,0.5);
+    border-radius:5px;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right:15px;
+    padding-bottom: 10px;
+    float:right;
 }
+
 .sidebar-resources-categories{
     width:95%;
-    height: 250px;
+    max-width:600px;
     margin-bottom: 20px;
     background-color:white;
     line-height: 25px;

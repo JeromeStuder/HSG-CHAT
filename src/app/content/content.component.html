@@ -6,16 +6,17 @@
         <p class="welcomeText col-sm-10 hidden-xs">{{KursInformation}}</p><!--Gibt die Überschrift an, falls der Bildschirm mehr als 768px ist, ist dieser 8 Einheiten breit, falls weniger als 768px, dann 12 Einheiten-->
     </div>
         <div class="row"><!-- Definiert die Grosse Messagebox, bei der der Text eingefügt wird-->
-        <div class="sidebar-resources-categories center-block"><!--Definiert die Sprechblase-->
+        <div name="height-sidebar" [style.height.px]="innerHeight" class="sidebar-resources-categories max-width-sprechblase center-block"><!--Definiert die Sprechblase-->
             <div class="Chat-Content" id="chatGoesHere"><!-- in dieses DIV werden die Chatnachrichten eingefügt -->
-                <div class="chat_receive">{{user1}}: Hallo</div>
-                <div class="chat_receive">{{user2}}: Hey</div>
-                <div class="chat_receive">{{user1}}: wie geht's</div>
-                <div class="chat_myself">ICH: Hallo</div>
-                <div class="chat_receive">{{user1}}: Hallo</div>
-                <div class="chat_receive">{{user2}}: Servus du</div>
-                <div class="chat_myself">ICH: gut und euch</div>
-                <div class="chat_receive">{{user1}}: ja passt</div>
+                    <div class="bubble"><div class="chat_receive">{{user1}}: Hallo</div></div>
+                    <div class="bubble"><div class="chat_receive">{{user2}}: Hey</div></div>
+                    <div class="bubble"><div class="chat_receive">{{user1}}: wie geht's</div></div>
+                    <div class="bubble"><div class="chat_myself">ICH: Hallo<p>hallo</p></div></div>
+                    <div class="bubble"><div class="chat_receive">{{user1}}: Hallo</div></div>
+                    <div class="bubble"><div class="chat_receive">{{user2}}: Servus du</div></div>
+                    <div class="bubble"><div class="chat_myself">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum'
+                    </div></div>
+                    <div class="bubble"><div class="chat_receive">{{user1}}: ja passt</div></div>
             </div>
         </div>
     </div>

@@ -7,15 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageboxComponent implements OnInit {
   public chatMessage: string;
+  public messageToSend: string;
+  public userName: string;
 
-  constructor() { }
+  constructor() { 
 
+  }
+  innerHeight: any;
+  innerWidth: any;
+  loginText = 'Bitte Nickname eingeben';
   sendText ='Weg damit';
   
   public showMessage():void{
-    alert(this.chatMessage);
+    this.messageToSend = this.chatMessage;
     this.chatMessage = '';
+    alert('Danke'+this.userName+'du hast folgendes eingegeben:'+ this.messageToSend);
   }
+
+  public setName():void{
+    if(this.userName!=''){
+      document.getElementById('overlayLogin').style.visibility = 'hidden';
+    }else{
+      alert('Enter useranme');
+    }
+  }
+
+
 
 
   ngOnInit() {
