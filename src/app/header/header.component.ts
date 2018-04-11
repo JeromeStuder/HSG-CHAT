@@ -1,38 +1,41 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { EventEmitter, Component, OnInit,Input, Output } from '@angular/core';
 import { Window } from 'selenium-webdriver';
+import { MessageboxComponent }  from '../messagebox/messagebox.component';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
+
 })
+
+
+
 export class HeaderComponent implements OnInit {
-  /*private _name='';
-  @Input()
-  set name(name: string){
-    this._name = (name&&name.trim())||'UNISG-CHAT';
-  }
-  get name(): string{return this._name;}
-  */
+
+  @Input() headerUserNameInput:string;
+  @Output() logoutHeaderCommand = new EventEmitter();
   header = 'Herzlich Willkommen zum UNISG-CHAT';
-  headerMobile ='UNISG-CHAT'
+  headerMobile ='UNISG-CHAT';
+  
   logo={
     'src':'assets/logo_de.jpg',
     'alt':'UNISG-Logo'
   }
+  
   logoMobile={
     'src':'assets/logo-mobile.png',
     'alt':'UNISG-Logo'
   }
-
+  constructor() { }
+  //Führt die Logout funktion aus, setzt den headerUserNameInput auf null, damit kein name angezeigt wird und 
+  //schickt den befehl logoutHeaderCommand an app.component.ts, diesr wird 
   public logout():void{
-    var r = confirm('Bist du sicher, dass du gehen möchtest?');
-    if (r==true) {
-      window.location.href="https://www.google.ch";
+    if (confirm(this.headerUserNameInput+ ' bist du sicher, dass du gehen willst?')) {
+      this.logoutHeaderCommand.emit('true');
+      this.headerUserNameInput='';
     }
   }
-  constructor() { }
-
   ngOnInit() {
     
   }

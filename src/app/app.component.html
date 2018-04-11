@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-header></app-header>
+<app-header (logoutHeaderCommand)=getLoginWindow() [headerUserNameInput]=userName></app-header>
 <app-content></app-content>
 
-<app-messagebox></app-messagebox>
+<app-messagebox (userNameChange)=getUserName($event) [viewLoginWindow]=showLoginWindow></app-messagebox><!--username change in message.component.ts, getusername in app.component.ts-->
 <app-footer></app-footer>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {EventEmitter, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-footer',

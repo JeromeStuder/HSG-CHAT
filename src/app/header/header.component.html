@@ -5,7 +5,7 @@
     </div>
     <div class="header-text hidden-xs col-sm-8">{{header}}</div><!--die Mitte wird mit 8 Einheinten angegeben.-->
     <div class="header-text hidden-sm hidden-md hidden-lg col-xs-8">{{headerMobile}}</div>
-    <div class="col-sm-2 col-xs-2" style="text-align:center;margin-top:15px;color:black;" (click)="logout()"><a href="" ><i class="fa fa-sign-out" style="font-size:36px;color:#00802F;"></i></a></div><!--rechts-->
+    <div class="col-sm-2 col-xs-2" style="text-align:center;margin-top:15px;color:black;" (click)="logout()"><div [hidden]="!headerUserNameInput"><a style="color:#00802F;" href="#" >{{headerUserNameInput}}&nbsp;<i class="fa fa-sign-out" style="font-size:36px;color:#00802F;"></i></a></div></div><!--rechts-->
 </div>
 
         

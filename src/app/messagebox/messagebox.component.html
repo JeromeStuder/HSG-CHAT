@@ -5,10 +5,9 @@
   
   <button class="btn-default btn-lg col-sm-2 col-xs-2 gruen round-button" [disabled]="!chatMessage"  (click)="showMessage()">{{sendText}}</button><!--Button zum senden-->
 </div>
-<!--
 <div id="overlayLogin">
   <div class="overlay-text overlay-text-content"><p class="overlay-text-title">{{loginText}}</p>
-    <input type="text" [(ngModel)]="userName" placeholder="Nickname"/><button class="btn btn-default" (click)="setName()">Nickname setzen</button>
+    <p><input type="text" [(ngModel)]="userName" placeholder="Nickname"/></p>
+    <p><button class="btn btn-default" (click)="setName()" [disabled]="!userName">Nickname setzen</button>
   </div>
 </div>
--->
