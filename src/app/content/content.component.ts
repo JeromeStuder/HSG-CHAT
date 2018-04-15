@@ -27,6 +27,9 @@ export class ContentComponent implements OnInit {
     var index = Math.abs(hash % this.COLORS.length);
     return this.COLORS[index];
   }
+  public getMessageContent():void{
+    alert('haha');
+  }
 
   @Output() clearMessage = new EventEmitter();
   
@@ -38,8 +41,13 @@ export class ContentComponent implements OnInit {
   @Input() set getNicknameMessagecontent(nicknameGet:string){
     this.userName = nicknameGet;
   }
-  @Input() set setMessageUserInput(value:string){
+  @Input() set setMessageUserInput(value){
     if(value.trim()!=''){
+      var substring=/%5%7%&_/;
+      if(value.match(substring)){
+        value = value.substr(7);
+        
+      }
       //Die variabeln für die DIV's vorbereiten
       var createBubbleElement;
       var createMessageElement;
@@ -91,7 +99,8 @@ export class ContentComponent implements OnInit {
       //Zum ende der nachricht scrollen
       document.getElementById('chatGoesHere').scrollTop = document.getElementById('chatGoesHere').scrollHeight;
       //Befehl, damit sämtliche Nachrichten gelöscht werden
-      this.clearMessage.emit(ownMessage);
+      this.clearMessage.emit('_&&:_');
+    }else{
     }
   }
     

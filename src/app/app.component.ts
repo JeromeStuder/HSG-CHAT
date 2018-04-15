@@ -7,22 +7,23 @@ import { Component,EventEmitter, Input, Output, Directive, ViewContainerRef} fro
 })
 
 export class AppComponent {
-  title = 'app';
-  userName='';
-  userMessage='';
+  public userName='';
+  public userMessage='';
   public logOff:string = 'logoutFalse';
 
-  @Output() sendMessageToContent = Output
-  
   public getUserName(inputString):void{
     this.userName = inputString.trim();
     this.logOff='logoutFalse';
   }
-  public getMessage(messageString):void{
-    this.userMessage = messageString;
+  public getMessage(messageString){
+    if(this.userMessage==messageString){
+      this.userMessage='%5%7%&_'+messageString;
+    }else{
+      this.userMessage = messageString;
+    }
   }
   public clearMessageFunc(messageID):void{
-    this.userMessage = '';
+   
   }
   public getLoginWindow(string):void{
     this.logOff=string;
