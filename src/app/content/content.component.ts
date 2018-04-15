@@ -9,6 +9,7 @@ import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 export class ContentComponent implements OnInit {
   public countMessage;
   public message;
+  public userName;
   //Verschiedene Farben
   public COLORS = [
     '#e21400', '#91580f', '#f8a700', '#f78b00',
@@ -27,7 +28,6 @@ export class ContentComponent implements OnInit {
     return this.COLORS[index];
   }
 
-
   @Output() clearMessage = new EventEmitter();
   
   @Input() set ClearCommand(command:string){
@@ -35,15 +35,21 @@ export class ContentComponent implements OnInit {
       document.getElementById('chatGoesHere').innerHTML = '';
     }
   }
-  
+  @Input() set getNicknameMessagecontent(nicknameGet:string){
+    this.userName = nicknameGet;
+  }
   @Input() set setMessageUserInput(value:string){
     if(value.trim()!=''){
       //Die variabeln für die DIV's vorbereiten
       var createBubbleElement;
       var createMessageElement;
+      var createTextElement;
+      var createUsernameElement;
       //Die ID's für die Div's erstellen
       var addID = 'ownMessage_'+this.countMessage;
-      var addMessageId='feldMessage_'+this.countMessage;
+      var addMessageId='feldOwnMessage_'+this.countMessage;
+      var ownNickname = this.userName+'_'+this.countMessage;
+      var ownMessage ='myMessageText_'+this.countMessage; 
       //HTML DIV erstellen für die Bubble
       createBubbleElement = document.createElement('div');
       //neuer Bubble die klass und die id übergeben
@@ -52,29 +58,40 @@ export class ContentComponent implements OnInit {
       //das neue Div mit der id ownMessage_XX dem div chatGoesHere hinzufügen
       document.getElementById('chatGoesHere').appendChild(createBubbleElement);
       //die Angularstylekomponente dem div Bubble hinzufügen
-      var attribute = document.getElementById(addID);
-      attribute.setAttribute('_ngcontent-c2','');
+      document.getElementById(addID).setAttribute('_ngcontent-c2','');
       //Das Div für die Nachriht erstellen 
       createMessageElement = document.createElement('div');
       //Dem Div die Klasse und die ID geben
       createMessageElement.className= 'chat_myself';
       createMessageElement.id = addMessageId;
-      //Die Chatnachricht vorbereiten um in das DIV chat_myself einzufügen
-      this.message = document.createTextNode(value);
       //das Div chat_myself der Bubble hinzufügnen
       document.getElementById(addID).appendChild(createMessageElement);
       //Dem div die Stylekomponente übergebene
-      var messAttribute = document.getElementById(addMessageId);
-      messAttribute.setAttribute('_ngcontent-c2','');
+      document.getElementById(addMessageId).setAttribute('_ngcontent-c2','');
+      //Die DIV's für die TextMessage und den Username erstellen
+      createTextElement = document.createElement('div');
+      createTextElement.id = ownMessage;
+      createUsernameElement = document.createElement('div');
+      createUsernameElement.className = 'chat_myself_username';
+      createUsernameElement.id = ownNickname;
+      //Die beiden divs hinzufügen
+      document.getElementById(addMessageId).appendChild(createTextElement);
+      document.getElementById(addMessageId).appendChild(createUsernameElement);
+      document.getElementById(ownMessage).setAttribute('_ngconten-c2','');
+      document.getElementById(ownNickname).setAttribute('_ngcontent-c2','');
+      //Die Chatnachricht vorbereiten um in das DIV chat_myself einzufügen
+      this.message = document.createTextNode(value);
+      var userNameNode = document.createTextNode(this.userName);
       //Dem Div chat_myself die Nachticht einfügen 
-      document.getElementById(addMessageId).appendChild(this.message);
+      document.getElementById(ownMessage).appendChild(this.message);
+      document.getElementById(ownNickname).appendChild(userNameNode);
       //Den Counter der eigenen Nachricht erhöhen, damit die nächste Nachricht wider eine
       //unique identification hat
       this.countMessage++;
       //Zum ende der nachricht scrollen
       document.getElementById('chatGoesHere').scrollTop = document.getElementById('chatGoesHere').scrollHeight;
       //Befehl, damit sämtliche Nachrichten gelöscht werden
-      this.clearMessage.emit(addID);
+      this.clearMessage.emit(ownMessage);
     }
   }
     

@@ -64,6 +64,11 @@
     padding-right:15px;
     padding-bottom: 10px;
     float:right;
+    display:flex;
+}
+.chat_myself_username{
+    min-width:75px;
+    color:#00802F;
 }
 
 .sidebar-resources-categories{
