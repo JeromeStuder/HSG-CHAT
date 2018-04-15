@@ -11,7 +11,13 @@ export class MessageboxComponent implements OnInit {
   public userName: string;
 
   @Output() userNameChange = new EventEmitter();
-  @Input() viewLoginWindow:string;
+  @Output() sendMessage = new EventEmitter();
+  @Input() set viewLoginWindow(logoutCommand:string){
+    if(logoutCommand=='logoutTrue'){
+      this.userName = '';
+      document.getElementById('overlayLogin').style.visibility = 'visible';
+    }
+  }
 
 
   constructor() { 
@@ -26,7 +32,8 @@ export class MessageboxComponent implements OnInit {
   public showMessage():void{
     this.messageToSend = this.chatMessage;
     this.chatMessage = '';
-    alert('Danke '+this.userName+' du hast folgendes eingegeben:'+ this.messageToSend);
+    this.sendMessage.emit(this.messageToSend);
+    //alert('Danke '+this.userName+' du hast folgendes eingegeben:'+ this.messageToSend);
   }
   //legt den usernamen fest und schickt diesen an den headercomponent, damit dieser angezeigt werden kann.
   public setName():void{
@@ -40,11 +47,11 @@ export class MessageboxComponent implements OnInit {
   }
  
   //Wird aufgerufen, wenn im header auf Logout gedrückt wird und sich das viewLoginWindowVariable in app.components.ts ändert.
- ngOnChanges(changes: this.viewLoginWindow): void {
+ //ngOnChanges(changes: this.viewLoginWindow): void {
    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
    //Add '${implements OnChanges}' to the class.
    
- }
+ //}
 
 
   ngOnInit() {

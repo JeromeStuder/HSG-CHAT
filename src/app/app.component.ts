@@ -1,4 +1,4 @@
-import { Component,EventEmitter, Input, Output, } from '@angular/core';
+import { Component,EventEmitter, Input, Output, Directive, ViewContainerRef} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +9,25 @@ import { Component,EventEmitter, Input, Output, } from '@angular/core';
 export class AppComponent {
   title = 'app';
   userName='';
-  public logOff:string = 'false';
-  @Output() showLoginWindow = new EventEmitter();
+  userMessage='';
+  public logOff:string = 'logoutFalse';
+
+  @Output() sendMessageToContent = Output
   
-  public getUserName(string):void{
-    this.userName = string.trim();
+  public getUserName(inputString):void{
+    this.userName = inputString.trim();
+    this.logOff='logoutFalse';
+  }
+  public getMessage(messageString):void{
+    this.userMessage = messageString;
+  }
+  public clearMessageFunc(messageID):void{
+    this.userMessage = '';
   }
   public getLoginWindow(string):void{
-    this.logOff = string;
-    this.showLoginWindow.emit('true');
+    this.logOff=string;
+    if(string=='logoutTrue'){
+      this.userName = '';
+    }
   }
 }

@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
   //schickt den befehl logoutHeaderCommand an app.component.ts, diesr wird 
   public logout():void{
     if (confirm(this.headerUserNameInput+ ' bist du sicher, dass du gehen willst?')) {
-      this.logoutHeaderCommand.emit('true');
+      this.logoutHeaderCommand.emit('logoutTrue');
       this.headerUserNameInput='';
     }
   }

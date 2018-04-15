@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-header (logoutHeaderCommand)=getLoginWindow() [headerUserNameInput]=userName></app-header>
-<app-content></app-content>
+<app-header (logoutHeaderCommand)=getLoginWindow($event) [headerUserNameInput]=userName></app-header>
+<app-content [setMessageUserInput]=userMessage [ClearCommand]=logOff (clearMessage)=clearMessageFunc($event)></app-content>
 
-<app-messagebox (userNameChange)=getUserName($event) [viewLoginWindow]=showLoginWindow></app-messagebox><!--username change in message.component.ts, getusername in app.component.ts-->
+<app-messagebox (userNameChange)=getUserName($event) (sendMessage)=getMessage($event) [viewLoginWindow]=logOff></app-messagebox><!--username change in message.component.ts, getusername in app.component.ts-->
 <app-footer></app-footer>

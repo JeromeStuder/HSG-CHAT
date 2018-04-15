@@ -22,13 +22,15 @@
 }
 .bubble{
     width:100%;
-    min-height:60px;
+    min-height:60px !important;
     height:auto;
     clear:both;
 }
 .chat_receive{
     text-align:left;
-    margin-left:10px;
+    margin-left:20px;
+    margin-top:15px;
+    margin-bottom:15px;
     font-family:"Palatino";
     font-weight: normal;
     font-size:medium;
@@ -40,10 +42,17 @@
     padding-right:15px;
     padding-bottom: 10px;
     float:left;
+    display:flex;
+
+}
+.chat_receive_username{
+    min-width:75px;
 }
 .chat_myself{
     text-align:right;
-    margin-right:30px;
+    margin-right:15px;
+    margin-top:20px;
+    margin-bottom:15px;
     font-family:"Palatino";
     font-weight: normal;
     font-size:medium;
