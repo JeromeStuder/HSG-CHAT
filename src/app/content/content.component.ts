@@ -8,9 +8,26 @@ import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 
 export class ContentComponent implements OnInit {
   public countMessage;
-
-
   public message;
+  //Verschiedene Farben
+  public COLORS = [
+    '#e21400', '#91580f', '#f8a700', '#f78b00',
+    '#58dc00', '#287b00', '#a8f07a', '#4ae8c4',
+    '#3b88eb', '#3824aa', '#a700ff', '#d300e7'
+  ];
+  //Funktkion, die anhand des USernamens den Farbcode zurückgibt 
+  public getUsernameColor(username):string{
+    // Compute hash code
+    var hash = 7;
+    for (var i = 0; i < username.length; i++) {
+       hash = username.charCodeAt(i) + (hash << 5) - hash;
+    }
+    // Calculate color
+    var index = Math.abs(hash % this.COLORS.length);
+    return this.COLORS[index];
+  }
+
+
   @Output() clearMessage = new EventEmitter();
   
   @Input() set ClearCommand(command:string){
@@ -56,6 +73,7 @@ export class ContentComponent implements OnInit {
       this.countMessage++;
       //Zum ende der nachricht scrollen
       document.getElementById('chatGoesHere').scrollTop = document.getElementById('chatGoesHere').scrollHeight;
+      //Befehl, damit sämtliche Nachrichten gelöscht werden
       this.clearMessage.emit(addID);
     }
   }
@@ -70,12 +88,14 @@ export class ContentComponent implements OnInit {
       this.innerHeight -=50;
     }
     this.countMessage = 1;
-  }
+    }
   backgroundImg = 'assets/BackgroundStripes.png';
   KursInformation = 'Herzlich Willkommen! Diese Applikation wurde im Rahmen des Kurses "Professionelle Entwicklung von Webapplikationen (4,652,1.00)" entwickelt';
 
-  user1 = 'Fritz';
-  user2 = 'Elisabeth queen';
+  user1 = 'Mark';
+  user2 = 'Queen Elisabeth';
+  user3 = 'Anna';
+  user4 = 'King Charles';
 
   ngOnInit() {
   }
