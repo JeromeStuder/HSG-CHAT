@@ -13,8 +13,8 @@ export class ContentComponent implements OnInit {
   //Verschiedene Farben
   public COLORS = [
     '#e21400', '#91580f', '#f8a700', '#f78b00',
-    '#58dc00', '#287b00', '#a8f07a', '#4ae8c4',
-    '#3b88eb', '#3824aa', '#a700ff', '#d300e7'
+    '#58dc00', '#287b00', '#4ae8c4', '#3b88eb',
+    '#3824aa', '#a700ff', '#d300e7'
   ];
   //Funktkion, die anhand des USernamens den Farbcode zurückgibt 
   public getUsernameColor(username):string{
@@ -28,7 +28,6 @@ export class ContentComponent implements OnInit {
     return this.COLORS[index];
   }
   public getMessageContent():void{
-    alert('haha');
   }
 
   @Output() clearMessage = new EventEmitter();
@@ -43,10 +42,10 @@ export class ContentComponent implements OnInit {
   }
   @Input() set setMessageUserInput(value){
     if(value.trim()!=''){
+      //Test ob user die Datei mehrmals angeschaut hat
       var substring=/%5%7%&_/;
       if(value.match(substring)){
         value = value.substr(7);
-        
       }
       //Die variabeln für die DIV's vorbereiten
       var createBubbleElement;
@@ -82,9 +81,9 @@ export class ContentComponent implements OnInit {
       createUsernameElement = document.createElement('div');
       createUsernameElement.className = 'chat_myself_username';
       createUsernameElement.id = ownNickname;
-      //Die beiden divs hinzufügen
-      document.getElementById(addMessageId).appendChild(createTextElement);
+      //Die beiden divs innerhalb des Messagecontents hinzufügen
       document.getElementById(addMessageId).appendChild(createUsernameElement);
+      document.getElementById(addMessageId).appendChild(createTextElement);
       document.getElementById(ownMessage).setAttribute('_ngconten-c2','');
       document.getElementById(ownNickname).setAttribute('_ngcontent-c2','');
       //Die Chatnachricht vorbereiten um in das DIV chat_myself einzufügen
@@ -99,7 +98,7 @@ export class ContentComponent implements OnInit {
       //Zum ende der nachricht scrollen
       document.getElementById('chatGoesHere').scrollTop = document.getElementById('chatGoesHere').scrollHeight;
       //Befehl, damit sämtliche Nachrichten gelöscht werden
-      this.clearMessage.emit('_&&:_');
+      this.clearMessage.emit('clear');
     }else{
     }
   }
@@ -119,9 +118,9 @@ export class ContentComponent implements OnInit {
   KursInformation = 'Herzlich Willkommen! Diese Applikation wurde im Rahmen des Kurses "Professionelle Entwicklung von Webapplikationen (4,652,1.00)" entwickelt';
 
   user1 = 'Mark';
-  user2 = 'Queen Elisabeth';
+  user2 = 'Queen';
   user3 = 'Anna';
-  user4 = 'King Charles';
+  user4 = 'King';
 
   ngOnInit() {
   }

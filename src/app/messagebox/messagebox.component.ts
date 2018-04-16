@@ -33,9 +33,8 @@ export class MessageboxComponent implements OnInit {
     this.messageToSend = this.chatMessage;
     this.chatMessage = '';
     this.sendMessage.emit(this.messageToSend);
-    //alert('Danke '+this.userName+' du hast folgendes eingegeben:'+ this.messageToSend);
   }
-  //legt den usernamen fest und schickt diesen an den headercomponent, damit dieser angezeigt werden kann.
+  //legt den usernamen fest und schickt diesen an den Parent-directory, damit dieser angezeigt werden kann.
   public setName():void{
     this.userName = this.userName.trim();
     if(this.userName!=''){
