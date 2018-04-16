@@ -14,7 +14,8 @@ export class ContentComponent implements OnInit {
   public COLORS = [
     '#e21400', '#91580f', '#f8a700', '#f78b00',
     '#58dc00', '#287b00', '#4ae8c4', '#3b88eb',
-    '#3824aa', '#a700ff', '#d300e7'
+    '#3824aa', '#a700ff', '#d300e7', '#633974',
+    '#A04000', '#F0B27A', '#CD6155', '#2E4053'
   ];
   //Funktkion, die anhand des USernamens den Farbcode zurückgibt 
   public getUsernameColor(username):string{
@@ -119,7 +120,7 @@ export class ContentComponent implements OnInit {
 
   user1 = 'Mark';
   user2 = 'Queen';
-  user3 = 'Anna';
+  user3 = 'Eve';
   user4 = 'King';
 
   ngOnInit() {
