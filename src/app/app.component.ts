@@ -1,4 +1,7 @@
 import { Component,EventEmitter, Input, Output, Directive, ViewContainerRef} from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
+import { RxSocket } from 'socket.io-client';
 
 @Component({
   selector: 'app-root',
