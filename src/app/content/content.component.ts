@@ -10,7 +10,6 @@ export class ContentComponent implements OnInit {
   //Counter für nachrichten
   public countMessage;
   //
-  //
   public message;
   //Username 
   public userName;
@@ -23,6 +22,8 @@ export class ContentComponent implements OnInit {
     '#3824aa', '#a700ff', '#d300e7', '#633974',
     '#A04000', '#F0B27A', '#CD6155', '#2E4053'
   ];
+
+
   //Funktkion, die anhand des USernamens den Farbcode zurückgibt 
   public getUsernameColor(username):string{
     // Compute hash code
@@ -95,14 +96,22 @@ export class ContentComponent implements OnInit {
       document.getElementById(addMessageId).appendChild(createUsernameElement);
       document.getElementById(addMessageId).appendChild(createTextElement);
       document.getElementById(ownMessage).setAttribute('_ngconten-c2','');
+      document.getElementById(ownMessage).setAttribute('style','word-wrap: break-word;')
       document.getElementById(ownNickname).setAttribute('_ngcontent-c2','');
+      var widthUsername = document.getElementById(ownNickname).offsetWidth;
+      if(value.length>80){
+        var contentWindowWidth = 370 - widthUsername;
+        document.getElementById(ownMessage).style.width = contentWindowWidth+"px";
+      }
       //Die Chatnachricht vorbereiten um in das DIV chat_myself einzufügen
       this.message = document.createTextNode(value);
-      var userNameNode = document.createTextNode(this.userName);
+      const d: Date = new Date();
+      var hours = d.getHours();
+      var minutes = d.getMinutes();
       //Dem Div chat_myself die Nachticht einfügen 
       document.getElementById(ownMessage).appendChild(this.message);
-      document.getElementById(ownNickname).appendChild(userNameNode);
-      //Den Counter der eigenen Nachricht erhöhen, damit die nächste Nachricht wider eine
+      document.getElementById(ownNickname).innerHTML = this.userName+'<p>'+hours+":"+minutes;
+       //Den Counter der eigenen Nachricht erhöhen, damit die nächste Nachricht wider eine
       //unique identification hat
       this.countMessage++;
       //Zum ende der nachricht scrollen

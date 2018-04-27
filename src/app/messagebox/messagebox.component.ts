@@ -30,9 +30,14 @@ export class MessageboxComponent implements OnInit {
   sendText ='Weg damit';
   
   public showMessage():void{
+    if(this.userName!=''){
     this.messageToSend = this.chatMessage;
     this.chatMessage = '';
     this.sendMessage.emit(this.messageToSend);
+    }else{
+      alert('please choose a username');
+      document.getElementById('overlayLogin').style.visibility = 'visible';
+    }
   }
   //legt den usernamen fest und schickt diesen an den Parent-directory, damit dieser angezeigt werden kann.
   public setName():void{
