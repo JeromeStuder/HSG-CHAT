@@ -2,7 +2,6 @@
   <div class="col-sm-10 col-xs-10"><!--Eingabefeld, 10 einheiten breit-->
     <textarea [(ngModel)]="chatMessage" class="col-sm-10 col-xs-10 padding-textarea" rows="3" style="resize:none" id="chatMess" placeholder="Gib hier deine Nachricht ein..." (keyup.enter)="showMessage()" maxlength="250" ></textarea>
   </div>
-  
   <button class="btn-default btn-lg col-sm-2 col-xs-2 gruen round-button" [disabled]="!chatMessage"  (click)="showMessage()">{{sendText}}</button><!--Button zum senden-->
 </div>
 <div id="overlayLogin">

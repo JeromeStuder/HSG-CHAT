@@ -1,7 +1,5 @@
 import { Component,EventEmitter, Input, Output, Directive, ViewContainerRef} from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Observer } from 'rxjs/Observer';
-import { RxSocket } from 'socket.io-client';
+import { ChatService } from './chat.service';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +8,9 @@ import { RxSocket } from 'socket.io-client';
 })
 
 export class AppComponent {
+  constructor(private chat: ChatService){ }
+
+
   public userName='';
   public userMessage='';
   public logOff:string = 'logoutFalse';
@@ -20,9 +21,11 @@ export class AppComponent {
   }
   public getMessage(messageString){
     if(this.userMessage==messageString){
+      this.chat.sendMsg(messageString, this.userName);
       this.userMessage='%5%7%&_'+messageString;
     }else{
       this.userMessage = messageString;
+      this.chat.sendMsg(messageString, this.userName);
     }
   }
   public clearMessageFunc(messageID):void{

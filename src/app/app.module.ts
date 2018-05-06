@@ -8,6 +8,9 @@ import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import { MessageboxComponent } from './messagebox/messagebox.component';
 
+import {ChatService} from './chat.service';
+import {WebsocketService} from './websocket.service';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { MessageboxComponent } from './messagebox/messagebox.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    ChatService,
+    WebsocketService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

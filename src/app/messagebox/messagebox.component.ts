@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
-
+import { ChatService } from './../chat.service';
 @Component({
   selector: 'app-messagebox',
   templateUrl: './messagebox.component.html',
@@ -31,9 +31,9 @@ export class MessageboxComponent implements OnInit {
   
   public showMessage():void{
     if(this.userName!=''){
-    this.messageToSend = this.chatMessage;
-    this.chatMessage = '';
-    this.sendMessage.emit(this.messageToSend);
+      this.messageToSend = this.chatMessage;
+      this.chatMessage = '';
+      this.sendMessage.emit(this.messageToSend);
     }else{
       alert('please choose a username');
       document.getElementById('overlayLogin').style.visibility = 'visible';
