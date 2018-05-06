@@ -20,6 +20,7 @@ export class AppComponent {
     this.logOff='logoutFalse';
   }
   public getMessage(messageString){
+    messageString.trim();
     if(this.userMessage==messageString){
       this.chat.sendMsg(messageString, this.userName);
       this.userMessage='%5%7%&_'+messageString;
