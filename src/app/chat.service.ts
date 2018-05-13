@@ -22,5 +22,4 @@ export class ChatService {
     var sender = {"username":username,"message":msg};
     this.messages.next(sender);
   }
-
 }

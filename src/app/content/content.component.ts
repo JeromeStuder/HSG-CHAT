@@ -49,17 +49,22 @@ export class ContentComponent implements OnInit {
   }
 
   @Output() clearMessage = new EventEmitter();
-
+  //
+  //
   //Löscht sämtliche Nachrichten des Inputs
+  //
+  //
   @Input() set ClearCommand(command:string){
     if(command=='logoutTrue'){
       document.getElementById('chatGoesHere').innerHTML = '';
     }
   }
+//Nickname für Nachricht 
   @Input() set getNicknameMessagecontent(nicknameGet:string){
     this.userName = nicknameGet;
   }
-  //Zeigt NACHRICHT AN
+
+  //Zeigt NACHRICHT AN von mir selber
   @Input() set setMessageUserInput(value){
     if(value.trim()!=''){
       //Test ob user die Datei mehrmals angeschaut hat
@@ -145,8 +150,7 @@ export class ContentComponent implements OnInit {
       this.countMessage++;
       //Zum ende der nachricht scrollen
       document.getElementById('chatGoesHere').scrollTop = document.getElementById('chatGoesHere').scrollHeight;
-      //Befehl, damit sämtliche Nachrichten gelöscht werden
-      //this.clearMessage.emit('clear');
+ 
     }else{
     }
   }
@@ -160,7 +164,8 @@ export class ContentComponent implements OnInit {
     //Add 'implements OnInit' to the class.
     this.chatReceive.messages.subscribe(msgJSON => {
       var msg = JSON.parse(msgJSON);
-      console.log(msg);
+      console.log(msgJSON);
+      //console.log(msg);
       //Die variabeln für die DIV's vorbereiten
     var createBubbleElement;
     var createMessageElement;

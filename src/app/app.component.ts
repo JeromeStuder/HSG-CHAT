@@ -17,16 +17,22 @@ export class AppComponent {
 
   public getUserName(inputString):void{
     this.userName = inputString.trim();
+    this.chat.sendMsg('hat den Chat betreten', this.userName)
     this.logOff='logoutFalse';
   }
+  //FUnktion wenn User Nachricht eingegeben hat und auf Enter gedrückt hat
   public getMessage(messageString){
-    messageString.trim();
-    if(this.userMessage==messageString){
-      this.chat.sendMsg(messageString, this.userName);
-      this.userMessage='%5%7%&_'+messageString;
-    }else{
-      this.userMessage = messageString;
-      this.chat.sendMsg(messageString, this.userName);
+    messageString = messageString.trim();
+    if(messageString!=''&&messageString!='\n'){
+      if(this.userMessage==messageString){
+        //Nachricht an chat.service.ts
+        this.chat.sendMsg(messageString, this.userName);
+        //Nachricht an content.component.ts
+        this.userMessage='%5%7%&_'+messageString;
+      }else{
+        this.userMessage = messageString;
+        this.chat.sendMsg(messageString, this.userName);
+      }
     }
   }
   public clearMessageFunc(messageID):void{
@@ -35,6 +41,7 @@ export class AppComponent {
   public getLoginWindow(string):void{
     this.logOff=string;
     if(string=='logoutTrue'){
+      this.chat.sendMsg('hat den Chat verlassen', this.userName)
       this.userName = '';
     }
   }

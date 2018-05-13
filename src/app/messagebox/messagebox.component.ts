@@ -32,7 +32,9 @@ export class MessageboxComponent implements OnInit {
   public showMessage():void{
     if(this.userName!=''){
       this.messageToSend = this.chatMessage;
+      //Setzt nachricht in Textfeld auf leer
       this.chatMessage = '';
+      //Schickt NAchricht an app.component.ts
       this.sendMessage.emit(this.messageToSend);
     }else{
       alert('please choose a username');
